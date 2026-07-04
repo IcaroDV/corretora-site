@@ -52,3 +52,85 @@ body {
   padding: 1rem 2rem;
   font-size: 1.125rem;
 }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--color-navy);
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.brand-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.site-nav {
+  display: none;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--color-offwhite);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-nav a:hover {
+  color: var(--color-light);
+}
+
+.menu-toggle {
+  display: inline-flex;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.site-nav.nav-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-navy);
+  padding: 1rem 1.25rem;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .site-nav {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
