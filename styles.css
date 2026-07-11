@@ -36,6 +36,7 @@ body {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
+  text-align: center;
   transition: background 0.2s ease;
 }
 
@@ -51,6 +52,22 @@ body {
 .btn-large {
   padding: 1rem 2rem;
   font-size: 1.125rem;
+}
+
+.hero-pulse {
+  animation: hero-pulse 2.5s ease-out infinite;
+}
+
+@keyframes hero-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
 .site-header {
@@ -87,6 +104,7 @@ body {
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .site-nav {
@@ -125,9 +143,45 @@ body {
   gap: 1rem;
 }
 
+@media (max-width: 767px) {
+  .header-inner {
+    justify-content: center;
+  }
+
+  .header-inner .btn-cta {
+    display: none;
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 @media (min-width: 768px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .brand {
+    justify-self: start;
+  }
+
   .site-nav {
     display: flex;
+    justify-self: center;
+  }
+
+  .btn-cta {
+    justify-self: end;
   }
 
   .menu-toggle {
@@ -238,14 +292,15 @@ body {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 480px) {
   .contact-grid {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -254,14 +309,22 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  width: 130px;
   background: var(--color-offwhite);
   border: 1px solid var(--color-light);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   text-decoration: none;
   color: var(--color-navy);
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 480px) {
+  .contact-card {
+    width: 160px;
+    padding: 1.25rem;
+  }
 }
 
 .contact-card:hover {
@@ -282,11 +345,15 @@ body {
   padding: 2rem 0;
 }
 
-.footer-social a {
+.footer-credit {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+}
+
+.footer-credit a {
   color: var(--color-light);
+  opacity: 0.7;
   text-decoration: none;
-  margin-top: 0.5rem;
-  display: inline-block;
 }
 
 .whatsapp-float {
@@ -302,9 +369,4 @@ body {
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   z-index: 200;
-}
-
-.whatsapp-float svg {
-  width: 28px;
-  height: 28px;
 }
