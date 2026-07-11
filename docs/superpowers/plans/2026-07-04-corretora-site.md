@@ -1,14 +1,14 @@
-# Site PRO Corretora Implementation Plan
+# Plano de Implementação do Site PRO Corretora
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Construir e publicar o site institucional single-page da PRO Corretora (HTML/CSS/JS puro, sem build, sem formulários), hospedado no GitHub Pages.
+**Objetivo:** Construir e publicar o site institucional single-page da PRO Corretora (HTML/CSS/JS puro, sem build, sem formulários), hospedado no GitHub Pages.
 
-**Architecture:** Página única (`index.html`) com seções âncora (Header, Hero, Serviços, Sobre, Contato, Rodapé) mais um botão flutuante de WhatsApp. Estilo em `styles.css` usando variáveis CSS para a paleta da marca. Interatividade mínima em `script.js` (menu mobile + fechamento ao navegar).
+**Arquitetura:** Página única (`index.html`) com seções âncora (Header, Hero, Serviços, Sobre, Contato, Rodapé) mais um botão flutuante de WhatsApp. Estilo em `styles.css` usando variáveis CSS para a paleta da marca. Interatividade mínima em `script.js` (menu mobile + fechamento ao navegar).
 
-**Tech Stack:** HTML5, CSS3 (custom properties, Flexbox/Grid, media queries), JavaScript vanilla (sem frameworks, sem dependências externas, sem CDNs).
+**Stack Técnica:** HTML5, CSS3 (custom properties, Flexbox/Grid, media queries), JavaScript vanilla (sem frameworks, sem dependências externas, sem CDNs).
 
-## Global Constraints
+## Restrições Globais
 
 - Sem formulários e sem coleta de dados de visitantes (decisão do spec para evitar exposição a LGPD).
 - Zero dependências externas / sem build step — arquivos devem rodar abrindo `index.html` direto no navegador.
@@ -21,17 +21,17 @@
 
 ---
 
-### Task 1: Esqueleto do projeto e CSS base
+### Tarefa 1: Esqueleto do projeto e CSS base
 
-**Files:**
-- Create: `index.html`
-- Create: `styles.css`
-- Create: `README.md`
+**Arquivos:**
+- Criar: `index.html`
+- Criar: `styles.css`
+- Criar: `README.md`
 
 **Interfaces:**
-- Produces: variáveis CSS `--color-navy`, `--color-royal`, `--color-light`, `--color-offwhite`, `--color-whatsapp`, `--container-width`; classe utilitária `.container`; classes `.btn`, `.btn-cta`, `.btn-large`.
+- Produz: variáveis CSS `--color-navy`, `--color-royal`, `--color-light`, `--color-offwhite`, `--color-whatsapp`, `--container-width`; classe utilitária `.container`; classes `.btn`, `.btn-cta`, `.btn-large`.
 
-- [ ] **Step 1: Criar `index.html` com o esqueleto**
+- [ ] **Passo 1: Criar `index.html` com o esqueleto**
 
 ```html
 <!DOCTYPE html>
@@ -45,13 +45,13 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header, Hero, Serviços, Sobre, Contato, Rodapé e botão flutuante serão adicionados nas próximas tasks -->
+  <!-- Header, Hero, Serviços, Sobre, Contato, Rodapé e botão flutuante serão adicionados nas próximas tarefas -->
   <script src="script.js"></script>
 </body>
 </html>
 ```
 
-- [ ] **Step 2: Criar `styles.css` com reset, variáveis e utilitários base**
+- [ ] **Passo 2: Criar `styles.css` com reset, variáveis e utilitários base**
 
 ```css
 * {
@@ -110,7 +110,7 @@ body {
 }
 ```
 
-- [ ] **Step 3: Criar `README.md` com instruções básicas**
+- [ ] **Passo 3: Criar `README.md` com instruções básicas**
 
 ```markdown
 # Site PRO Corretora
@@ -129,14 +129,14 @@ Abra `index.html` direto no navegador (duplo clique) — não precisa de servido
 
 ## Publicar (GitHub Pages)
 
-Ver instruções na Task 9 do plano em `docs/superpowers/plans/2026-07-04-corretora-site.md`.
+Ver instruções na Tarefa 9 do plano em `docs/superpowers/plans/2026-07-04-corretora-site.md`.
 ```
 
-- [ ] **Step 4: Verificar no navegador**
+- [ ] **Passo 4: Verificar no navegador**
 
 Abra `index.html` no navegador. Esperado: página em branco, sem erros no console (F12 → Console).
 
-- [ ] **Step 5: Commit**
+- [ ] **Passo 5: Commit**
 
 ```bash
 git add index.html styles.css README.md
@@ -145,18 +145,18 @@ git commit -m "Add project skeleton and base CSS variables"
 
 ---
 
-### Task 2: Header, navegação e botão CTA
+### Tarefa 2: Header, navegação e botão CTA
 
-**Files:**
-- Modify: `index.html` (adicionar `<header>` logo após `<body>`)
-- Modify: `styles.css` (adicionar ao final)
-- Create: `script.js`
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<header>` logo após `<body>`)
+- Modificar: `styles.css` (adicionar ao final)
+- Criar: `script.js`
 
 **Interfaces:**
-- Consumes: `--color-navy`, `--color-light`, `--color-offwhite`, `.btn`, `.btn-cta` (Task 1)
-- Produces: classes `.site-header`, `.header-inner`, `.brand`, `.logo`, `.brand-name`, `.site-nav`, `.nav-open`, `.menu-toggle`; elementos com seletores `.menu-toggle` e `.site-nav` consumidos por `script.js`.
+- Consome: `--color-navy`, `--color-light`, `--color-offwhite`, `.btn`, `.btn-cta` (Tarefa 1)
+- Produz: classes `.site-header`, `.header-inner`, `.brand`, `.logo`, `.brand-name`, `.site-nav`, `.nav-open`, `.menu-toggle`; elementos com seletores `.menu-toggle` e `.site-nav` consumidos por `script.js`.
 
-- [ ] **Step 1: Adicionar o header em `index.html`** (logo após `<body>`, antes do comentário das próximas seções)
+- [ ] **Passo 1: Adicionar o header em `index.html`** (logo após `<body>`, antes do comentário das próximas seções)
 
 ```html
 <header class="site-header">
@@ -176,7 +176,7 @@ git commit -m "Add project skeleton and base CSS variables"
 </header>
 ```
 
-- [ ] **Step 2: Adicionar estilos do header em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos do header em `styles.css`**
 
 ```css
 .site-header {
@@ -262,7 +262,7 @@ git commit -m "Add project skeleton and base CSS variables"
 }
 ```
 
-- [ ] **Step 3: Criar `script.js` com o toggle do menu mobile**
+- [ ] **Passo 3: Criar `script.js` com o toggle do menu mobile**
 
 ```javascript
 const menuToggle = document.querySelector('.menu-toggle');
@@ -281,11 +281,11 @@ siteNav.querySelectorAll('a').forEach((link) => {
 });
 ```
 
-- [ ] **Step 4: Verificar no navegador**
+- [ ] **Passo 4: Verificar no navegador**
 
 Abra `index.html`. Redimensione a janela para < 768px de largura: o menu deve virar um botão "☰"; clicar nele deve abrir/fechar a navegação. Em largura >= 768px, os links "Serviços / Sobre / Contato" devem aparecer diretamente, sem o botão hamburger. Sem erros no console.
 
-- [ ] **Step 5: Commit**
+- [ ] **Passo 5: Commit**
 
 ```bash
 git add index.html styles.css script.js
@@ -294,16 +294,16 @@ git commit -m "Add sticky header with nav and mobile menu toggle"
 
 ---
 
-### Task 3: Seção Hero
+### Tarefa 3: Seção Hero
 
-**Files:**
-- Modify: `index.html` (adicionar `<section class="hero">` logo após `</header>`)
-- Modify: `styles.css` (adicionar ao final)
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<section class="hero">` logo após `</header>`)
+- Modificar: `styles.css` (adicionar ao final)
 
 **Interfaces:**
-- Consumes: `--color-royal`, `--color-navy`, `.btn`, `.btn-cta`, `.btn-large` (Tasks 1-2)
+- Consome: `--color-royal`, `--color-navy`, `.btn`, `.btn-cta`, `.btn-large` (Tasks 1-2)
 
-- [ ] **Step 1: Adicionar a seção hero em `index.html`**
+- [ ] **Passo 1: Adicionar a seção hero em `index.html`**
 
 ```html
 <section class="hero">
@@ -315,7 +315,7 @@ git commit -m "Add sticky header with nav and mobile menu toggle"
 </section>
 ```
 
-- [ ] **Step 2: Adicionar estilos do hero em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos do hero em `styles.css`**
 
 ```css
 .hero {
@@ -347,11 +347,11 @@ git commit -m "Add sticky header with nav and mobile menu toggle"
 }
 ```
 
-- [ ] **Step 3: Verificar no navegador**
+- [ ] **Passo 3: Verificar no navegador**
 
 Abra `index.html`. Esperado: seção com fundo em degradê azul, título, subtítulo e botão "Falar no WhatsApp" centralizados; título menor em telas estreitas e maior a partir de 768px.
 
-- [ ] **Step 4: Commit**
+- [ ] **Passo 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -360,17 +360,17 @@ git commit -m "Add hero section"
 
 ---
 
-### Task 4: Seção Serviços
+### Tarefa 4: Seção Serviços
 
-**Files:**
-- Modify: `index.html` (adicionar `<section id="servicos">` logo após a seção hero)
-- Modify: `styles.css` (adicionar ao final)
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<section id="servicos">` logo após a seção hero)
+- Modificar: `styles.css` (adicionar ao final)
 
 **Interfaces:**
-- Consumes: `--color-navy`, `--color-royal`, `--color-light` (Task 1)
-- Produces: classes `.services`, `.services-grid`, `.service-card` (consumidas apenas visualmente, sem dependência de outras tasks)
+- Consome: `--color-navy`, `--color-royal`, `--color-light` (Tarefa 1)
+- Produz: classes `.services`, `.services-grid`, `.service-card` (consumidas apenas visualmente, sem dependência de outras tasks)
 
-- [ ] **Step 1: Adicionar a seção de serviços em `index.html`**
+- [ ] **Passo 1: Adicionar a seção de serviços em `index.html`**
 
 ```html
 <section id="servicos" class="services">
@@ -406,7 +406,7 @@ git commit -m "Add hero section"
 </section>
 ```
 
-- [ ] **Step 2: Adicionar estilos da seção em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos da seção em `styles.css`**
 
 ```css
 .services {
@@ -453,11 +453,11 @@ git commit -m "Add hero section"
 }
 ```
 
-- [ ] **Step 3: Verificar no navegador**
+- [ ] **Passo 3: Verificar no navegador**
 
 Abra `index.html` e clique em "Serviços" no menu: deve rolar suavemente até a seção. Esperado: 1 coluna no mobile, 2 colunas a partir de 600px, 3 colunas a partir de 900px, com os 6 cards de serviço.
 
-- [ ] **Step 4: Commit**
+- [ ] **Passo 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -466,16 +466,16 @@ git commit -m "Add services section with responsive grid"
 
 ---
 
-### Task 5: Seção Sobre nós
+### Tarefa 5: Seção Sobre nós
 
-**Files:**
-- Modify: `index.html` (adicionar `<section id="sobre">` logo após a seção de serviços)
-- Modify: `styles.css` (adicionar ao final)
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<section id="sobre">` logo após a seção de serviços)
+- Modificar: `styles.css` (adicionar ao final)
 
 **Interfaces:**
-- Consumes: `--color-navy`, `--color-offwhite` (Task 1)
+- Consome: `--color-navy`, `--color-offwhite` (Tarefa 1)
 
-- [ ] **Step 1: Adicionar a seção "Sobre nós" em `index.html`**
+- [ ] **Passo 1: Adicionar a seção "Sobre nós" em `index.html`**
 
 ```html
 <section id="sobre" class="about">
@@ -486,7 +486,7 @@ git commit -m "Add services section with responsive grid"
 </section>
 ```
 
-- [ ] **Step 2: Adicionar estilos em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos em `styles.css`**
 
 ```css
 .about {
@@ -509,11 +509,11 @@ git commit -m "Add services section with responsive grid"
 }
 ```
 
-- [ ] **Step 3: Verificar no navegador**
+- [ ] **Passo 3: Verificar no navegador**
 
 Abra `index.html` e clique em "Sobre" no menu: deve rolar até a seção com fundo levemente diferente (branco-gelo) e o texto centralizado, largura máxima legível.
 
-- [ ] **Step 4: Commit**
+- [ ] **Passo 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -522,16 +522,16 @@ git commit -m "Add about us section"
 
 ---
 
-### Task 6: Seção Contatos
+### Tarefa 6: Seção Contatos
 
-**Files:**
-- Modify: `index.html` (adicionar `<section id="contato">` logo após a seção "Sobre nós")
-- Modify: `styles.css` (adicionar ao final)
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<section id="contato">` logo após a seção "Sobre nós")
+- Modificar: `styles.css` (adicionar ao final)
 
 **Interfaces:**
-- Consumes: `--color-navy`, `--color-royal`, `--color-light` (Task 1)
+- Consome: `--color-navy`, `--color-royal`, `--color-light` (Tarefa 1)
 
-- [ ] **Step 1: Adicionar a seção de contatos em `index.html`**
+- [ ] **Passo 1: Adicionar a seção de contatos em `index.html`**
 
 ```html
 <section id="contato" class="contact">
@@ -564,7 +564,7 @@ git commit -m "Add about us section"
 </section>
 ```
 
-- [ ] **Step 2: Adicionar estilos em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos em `styles.css`**
 
 ```css
 .contact {
@@ -618,11 +618,11 @@ git commit -m "Add about us section"
 }
 ```
 
-- [ ] **Step 3: Verificar no navegador**
+- [ ] **Passo 3: Verificar no navegador**
 
 Abra `index.html` e clique em "Contato" no menu: deve rolar até 3 cartões (mobile: empilhados; desktop >= 700px: lado a lado). Passar o mouse sobre um cartão deve elevá-lo levemente. Clicar no cartão de e-mail deve abrir o cliente de e-mail padrão (`mailto:`); WhatsApp e Instagram abrem em nova aba.
 
-- [ ] **Step 4: Commit**
+- [ ] **Passo 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -631,16 +631,16 @@ git commit -m "Add contact section with WhatsApp, email and Instagram links"
 
 ---
 
-### Task 7: Rodapé e botão flutuante do WhatsApp
+### Tarefa 7: Rodapé e botão flutuante do WhatsApp
 
-**Files:**
-- Modify: `index.html` (adicionar `<footer>` após a seção de contatos, e o botão flutuante logo antes de `<script src="script.js">`)
-- Modify: `styles.css` (adicionar ao final)
+**Arquivos:**
+- Modificar: `index.html` (adicionar `<footer>` após a seção de contatos, e o botão flutuante logo antes de `<script src="script.js">`)
+- Modificar: `styles.css` (adicionar ao final)
 
 **Interfaces:**
-- Consumes: `--color-navy`, `--color-offwhite`, `--color-light`, `--color-whatsapp` (Task 1)
+- Consome: `--color-navy`, `--color-offwhite`, `--color-light`, `--color-whatsapp` (Tarefa 1)
 
-- [ ] **Step 1: Adicionar rodapé e botão flutuante em `index.html`**
+- [ ] **Passo 1: Adicionar rodapé e botão flutuante em `index.html`**
 
 ```html
 <footer class="site-footer">
@@ -659,7 +659,7 @@ git commit -m "Add contact section with WhatsApp, email and Instagram links"
 </a>
 ```
 
-- [ ] **Step 2: Adicionar estilos em `styles.css`**
+- [ ] **Passo 2: Adicionar estilos em `styles.css`**
 
 ```css
 .site-footer {
@@ -697,11 +697,11 @@ git commit -m "Add contact section with WhatsApp, email and Instagram links"
 }
 ```
 
-- [ ] **Step 3: Verificar no navegador**
+- [ ] **Passo 3: Verificar no navegador**
 
 Abra `index.html`, role a página inteira: o botão circular verde de WhatsApp deve permanecer fixo no canto inferior direito o tempo todo. O rodapé deve mostrar o texto de copyright e o link do Instagram.
 
-- [ ] **Step 4: Commit**
+- [ ] **Passo 4: Commit**
 
 ```bash
 git add index.html styles.css
@@ -710,12 +710,12 @@ git commit -m "Add footer and floating WhatsApp button"
 
 ---
 
-### Task 8: Revisão final de responsividade e acessibilidade
+### Tarefa 8: Revisão final de responsividade e acessibilidade
 
-**Files:**
-- Modify: `styles.css` (ajustes pontuais, se necessário)
+**Arquivos:**
+- Modificar: `styles.css` (ajustes pontuais, se necessário)
 
-- [ ] **Step 1: Checklist manual de verificação**
+- [ ] **Passo 1: Checklist manual de verificação**
 
 Abra `index.html` e verifique, em pelo menos 3 larguras (ex: 375px celular, 768px tablet, 1280px desktop):
 
@@ -726,11 +726,11 @@ Abra `index.html` e verifique, em pelo menos 3 larguras (ex: 375px celular, 768p
 5. Contraste de texto legível em todas as seções (texto escuro sobre fundo claro, texto claro sobre fundo escuro).
 6. Botão flutuante do WhatsApp não sobrepõe conteúdo importante no rodapé em telas pequenas — se sobrepuser, ajuste `bottom`/`right` em `.whatsapp-float` para uma seção estreita.
 
-- [ ] **Step 2: Corrigir quaisquer problemas encontrados diretamente em `styles.css`**
+- [ ] **Passo 2: Corrigir quaisquer problemas encontrados diretamente em `styles.css`**
 
-(Sem placeholder — se o Step 1 não encontrar problemas, pule para o commit.)
+(Sem placeholder — se o Passo 1 não encontrar problemas, pule para o commit.)
 
-- [ ] **Step 3: Commit** (somente se houver alterações)
+- [ ] **Passo 3: Commit** (somente se houver alterações)
 
 ```bash
 git add styles.css
@@ -739,16 +739,16 @@ git commit -m "Polish responsive layout after manual QA"
 
 ---
 
-### Task 9: Publicar no GitHub Pages
+### Tarefa 9: Publicar no GitHub Pages
 
-**Files:**
+**Arquivos:**
 - Nenhum arquivo de código — apenas configuração de repositório remoto.
 
-- [ ] **Step 1: Criar repositório no GitHub**
+- [ ] **Passo 1: Criar repositório no GitHub**
 
 Acesse https://github.com/new, crie um repositório público chamado `corretora-site` (ou nome de sua preferência), sem inicializar com README (o projeto já tem um).
 
-- [ ] **Step 2: Conectar o repositório local ao remoto**
+- [ ] **Passo 2: Conectar o repositório local ao remoto**
 
 ```bash
 cd /c/Users/devic/projects/corretora-site
@@ -757,10 +757,10 @@ git branch -M main
 git push -u origin main
 ```
 
-- [ ] **Step 3: Ativar o GitHub Pages**
+- [ ] **Passo 3: Ativar o GitHub Pages**
 
 No GitHub: `Settings` → `Pages` → em "Build and deployment", selecione `Source: Deploy from a branch`, `Branch: main`, pasta `/ (root)` → `Save`.
 
-- [ ] **Step 4: Verificar publicação**
+- [ ] **Passo 4: Verificar publicação**
 
 Aguarde 1-2 minutos e acesse a URL exibida em `Settings` → `Pages` (formato `https://<seu-usuario>.github.io/corretora-site/`). Esperado: o site carrega igual ao teste local, com logo, seções e botão de WhatsApp funcionando.
